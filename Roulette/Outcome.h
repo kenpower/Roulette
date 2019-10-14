@@ -14,6 +14,8 @@ public:
 	}
 
 	bool operator==(const Outcome& rhs) const;
+	bool operator!=(const Outcome& rhs) const;
+	bool operator<(const Outcome& rhs) const;
 
 	string toString() const;
 };
