@@ -8,7 +8,4 @@ class Bin : public set<Outcome>
 {
 public:
 	Bin(std::initializer_list<Outcome>);
-
-
-
 };

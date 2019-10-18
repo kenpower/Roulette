@@ -2,18 +2,12 @@
 //
 
 #include <iostream>
-#include "Outcome.h"
+#include <stdlib.h>
+
 
 int main()
 {
-	Outcome a("Odd", 2);
-	Outcome b("Street 1-2-3", 11);
 
-	if (a == b) {
-		//do something
-	}
-
-    std::cout << "Hello World!\n";
 
 }
 

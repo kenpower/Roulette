@@ -155,10 +155,12 @@
     <ClCompile Include="Bin.cpp" />
     <ClCompile Include="Outcome.cpp" />
     <ClCompile Include="Roulette.cpp" />
+    <ClCompile Include="Wheel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bin.h" />
     <ClInclude Include="Outcome.h" />
+    <ClInclude Include="Wheel.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

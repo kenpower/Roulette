@@ -1,0 +1,70 @@
+#include "pch.h"
+#include "gtest/gtest.h"
+#include "../Roulette/Wheel.h"
+
+TEST(WheelAddOutcomes, Wheel) {
+
+	Wheel wheel;
+
+	Outcome odd("Odd", 5);
+	Outcome even("Even", 5);
+	Outcome street123("Street 1-2-3", 11);
+
+	wheel.addOutcome(10, odd);
+	wheel.addOutcome(10, street123);
+
+	Bin bin = wheel.get(10);
+
+	ASSERT_EQ(2, bin.size());
+	EXPECT_EQ(1, bin.count(odd));
+	EXPECT_EQ(1, bin.count(even));
+
+	wheel.addOutcome(37, even);
+
+	bin = wheel.get(37);
+
+	ASSERT_EQ(1, bin.size());
+	EXPECT_EQ(1, bin.count(even));
+
+	bin = wheel.get(0);
+
+	ASSERT_EQ(0, bin.size());
+}
+
+TEST(WheelAddUniqueOutcomes, Wheel) {
+
+	Wheel wheel;
+	Outcome odd("Odd", 5);
+
+	wheel.addOutcome(10, odd);
+	wheel.addOutcome(10, odd);
+
+	Bin bin = wheel.get(10);
+
+	ASSERT_EQ(1, bin.size());
+	EXPECT_EQ(1, bin.count(odd));
+}
+
+
+TEST(WheelGetRandomBin, Wheel) {
+
+	Wheel wheel(false);
+	
+	Outcome odd("Odd", 5);
+	Outcome zeroZero("ZeroZero", 36);
+
+	// with a seed of 1, rand() give sequence 3, 37, 26, 14, 17, 30, 2, 22, 20, 30,
+	wheel.addOutcome(3, odd);
+	wheel.addOutcome(37, zeroZero);
+
+	Bin bin = wheel.next();
+
+	ASSERT_EQ(1, bin.size());
+	EXPECT_EQ(1, bin.count(odd));
+
+	bin = wheel.next();
+
+	ASSERT_EQ(1, bin.size());
+	EXPECT_EQ(1, bin.count(zeroZero));
+
+}
