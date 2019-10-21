@@ -4,6 +4,8 @@
 
 using namespace std;
 
+const int NUMBER_OF_BINS{ 38 };
+
 class Wheel
 {
 private:

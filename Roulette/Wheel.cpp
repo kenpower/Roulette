@@ -1,10 +1,11 @@
 #include <stdlib.h>
+#include <time.h>
 #include "Wheel.h"
-
-const int NUMBER_OF_BINS{ 38 };
 
 Wheel::Wheel(bool randomSeed) : bins(NUMBER_OF_BINS, Bin{})
 {
+	srand(time(NULL));
+
 	if (!randomSeed) {
 		srand(1);
 	}
