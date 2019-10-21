@@ -8,9 +8,9 @@ TEST(StraightBets, BinBuilder) {
 
 	binBuilder.StraightBets(wheel);
 
-	ASSERT_EQ(Outcome("Number 0", 35), wheel.get(0).begin[0]);
-	ASSERT_EQ(Outcome("Number 1", 35), wheel.get(1).begin[0]);
-	ASSERT_EQ(Outcome("Number 36", 35), wheel.get(36).begin[0]);
-	ASSERT_EQ(Outcome("Number 00", 35), wheel.get(37).begin[0]);
+	ASSERT_EQ(Outcome("Number 0", 35), *wheel.get(0).begin());
+	ASSERT_EQ(Outcome("Number 1", 35), *wheel.get(1).begin());
+	ASSERT_EQ(Outcome("Number 36", 35), *wheel.get(36).begin());
+	ASSERT_EQ(Outcome("Number 00", 35), *wheel.get(37).begin());
 
 }
