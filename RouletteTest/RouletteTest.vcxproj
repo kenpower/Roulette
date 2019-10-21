@@ -36,6 +36,7 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BinBuilder.unittest.cpp" />
     <ClCompile Include="BinUnitTest.cpp" />
     <ClCompile Include="OutcomeUnitTests.cpp" />
     <ClCompile Include="pch.cpp">
@@ -73,7 +74,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)\Roulette\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Wheel.obj;Outcome.obj;Bin.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>BinBuilder.obj;Wheel.obj;Outcome.obj;Bin.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
