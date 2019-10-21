@@ -73,6 +73,7 @@ TEST(EventuallyGetsAllBins, Wheel) {
 
 	set<Bin> uniqueBinsRetrieved;
 	Wheel wheel;
+	const int NUMBER_OF_BINS{ 38 };
 
 	for (int i{ 0 }; i < NUMBER_OF_BINS; i++) {
 		Outcome outcome("Test outcome", i);
