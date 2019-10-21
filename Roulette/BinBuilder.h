@@ -10,5 +10,7 @@ public:
 
 	void straightBets(Wheel&);
 	void splitBets(Wheel&);
+	void streetBets(Wheel& wheel);
+	void cornerBets(Wheel& wheel);
 };
 
