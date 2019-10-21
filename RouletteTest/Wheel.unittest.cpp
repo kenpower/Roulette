@@ -69,21 +69,6 @@ TEST(WheelGetRandomBin, Wheel) {
 
 }
 
-TEST(OnlyGetsValidBins, Wheel) {
-
-	Wheel wheel;
-
-	for (int i{ 0 }; i < NUMBER_OF_BINS; i++) {
-		Outcome outcome("Dummy outcome", 1);
-		wheel.addOutcome(i, outcome);
-	}
-
-	for (int i{ 0 }; i <= 1000; i++) {
-		wheel.next();
-	}
-
-}
-
 TEST(EventuallyGetsAllBins, Wheel) {
 
 	set<Bin> uniqueBinsRetrieved;
