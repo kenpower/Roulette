@@ -8,10 +8,10 @@ TEST(StraightBets, BinBuilder) {
 
 	binBuilder.buildBins(wheel);
 
-	ASSERT_EQ(Outcome("Number 0", 35), *(wheel.get(0).begin()));
-	ASSERT_EQ(Outcome("Number 1", 35), *(wheel.get(1).begin()));
-	ASSERT_EQ(Outcome("Number 36", 35), *(wheel.get(36).begin()));
-	ASSERT_EQ(Outcome("Number 00", 35), *(wheel.get(37).begin()));
+	ASSERT_EQ(1, wheel.get(0).count(Outcome("Number 0", 35)));
+	ASSERT_EQ(1, wheel.get(1).count(Outcome("Number 1", 35)));
+	ASSERT_EQ(1, wheel.get(36).count(Outcome("Number 36", 35)));
+	ASSERT_EQ(1, wheel.get(37).count(Outcome("Number 00", 35)));
 }
 
 TEST(SplitRowBets, BinBuilder) {
@@ -200,5 +200,24 @@ TEST(EvenMoneyBets, BinBuilder) {
 	ASSERT_EQ(0, wheel.get(0).count(odd));
 	ASSERT_EQ(0, wheel.get(0).count(high));
 	ASSERT_EQ(0, wheel.get(0).count(low));
+
+}
+
+TEST(FiveBets, BinBuilder) {
+	BinBuilder binBuilder;
+	Wheel wheel;
+
+	binBuilder.buildBins(wheel);
+
+	Outcome five = Outcome("00-0-1-2-3", 6);
+
+	ASSERT_EQ(1, wheel.get(0).count(five));
+	ASSERT_EQ(1, wheel.get(1).count(five));
+	ASSERT_EQ(1, wheel.get(2).count(five));
+	ASSERT_EQ(1, wheel.get(3).count(five));
+	ASSERT_EQ(1, wheel.get(37).count(five));
+
+	ASSERT_EQ(0, wheel.get(4).count(five));
+	ASSERT_EQ(0, wheel.get(36).count(five));
 
 }

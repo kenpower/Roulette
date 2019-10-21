@@ -13,6 +13,8 @@ void cornerBets(Wheel&);
 void lineBets(Wheel&);
 void dozenBets(Wheel&);
 void columnBets(Wheel&);
+void fiveBet(Wheel&);
+
 
 void BinBuilder::buildBins(Wheel& wheel)
 {	
@@ -24,6 +26,7 @@ void BinBuilder::buildBins(Wheel& wheel)
 	lineBets(wheel);
 	dozenBets(wheel);
 	columnBets(wheel);
+	fiveBet(wheel);
 }
 
 void straightBets(Wheel& wheel)
@@ -232,3 +235,14 @@ void evenMoneyBets(Wheel& wheel)
 		addLowHighOutcome(number, wheel);
 	}
 }
+
+void fiveBet(Wheel& wheel)
+{
+	Outcome five = Outcome("00-0-1-2-3", 6);
+	wheel.addOutcome(0, five);
+	wheel.addOutcome(1, five);
+	wheel.addOutcome(2, five);
+	wheel.addOutcome(3, five);
+	wheel.addOutcome(37, five);
+}
+
