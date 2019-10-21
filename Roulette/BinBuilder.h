@@ -8,6 +8,7 @@ public:
 	BinBuilder();
 	void BuildBins(Wheel&);
 
-	void StraightBets(Wheel&);
+	void straightBets(Wheel&);
+	void splitBets(Wheel&);
 };
 

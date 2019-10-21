@@ -17,7 +17,7 @@ TEST(WheelAddOutcomes, Wheel) {
 
 	ASSERT_EQ(2, bin.size());
 	EXPECT_EQ(1, bin.count(odd));
-	EXPECT_EQ(1, bin.count(even));
+	EXPECT_EQ(1, bin.count(street123));
 
 	wheel.addOutcome(37, even);
 
@@ -76,7 +76,7 @@ TEST(EventuallyGetsAllBins, Wheel) {
 	const int NUMBER_OF_BINS{ 38 };
 
 	for (int i{ 0 }; i < NUMBER_OF_BINS; i++) {
-		Outcome outcome("Test outcome", i);
+		Outcome outcome("Test outcome" + std::to_string(i), 1);
 		wheel.addOutcome(i, outcome);
 	}
 

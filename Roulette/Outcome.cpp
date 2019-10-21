@@ -2,7 +2,7 @@
 
 bool Outcome::operator==(const Outcome& rhs) const
 {
-	return this->name.compare(rhs.name) == 0;
+	return this->toString().compare(rhs.toString()) == 0;
 }
 
 bool Outcome::operator!=(const Outcome& rhs) const
@@ -12,10 +12,10 @@ bool Outcome::operator!=(const Outcome& rhs) const
 
 bool Outcome::operator<(const Outcome& rhs) const
 {
-	return this->odds < rhs.odds;
+	return this->toString().compare(rhs.toString()) < 0;
 }
 
 string Outcome::toString() const
 {
-	return "";
+	return name + " (" + std::to_string(odds) + ":1)";
 }
