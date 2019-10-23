@@ -28,3 +28,8 @@ Bin Wheel::get(int index)
 {
 	return bins[index];
 }
+
+Bin Wheel::get00()
+{
+	return bins[ZEROZERO_INDEX];
+}

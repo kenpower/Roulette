@@ -2,7 +2,7 @@
 #include "gtest/gtest.h"
 #include "../Roulette/BinBuilder.h"
 
-TEST(StraightBets, BinBuilder) {
+TEST(BinBuilder, StraightBets) {
 	BinBuilder binBuilder;
 	Wheel wheel;
 
@@ -11,10 +11,10 @@ TEST(StraightBets, BinBuilder) {
 	ASSERT_EQ(1, wheel.get(0).count(Outcome("Number 0", 35)));
 	ASSERT_EQ(1, wheel.get(1).count(Outcome("Number 1", 35)));
 	ASSERT_EQ(1, wheel.get(36).count(Outcome("Number 36", 35)));
-	ASSERT_EQ(1, wheel.get(37).count(Outcome("Number 00", 35)));
+	ASSERT_EQ(1, wheel.get00().count(Outcome("Number 00", 35)));
 }
 
-TEST(SplitRowBets, BinBuilder) {
+TEST(BinBuilder, SplitRowBets) {
 	BinBuilder binBuilder;
 	Wheel wheel;
 
@@ -26,7 +26,7 @@ TEST(SplitRowBets, BinBuilder) {
 	ASSERT_EQ(1, wheel.get(36).count(Outcome("Split 35-36", 17)));
 }
 
-TEST(SplitColumnBets, BinBuilder) {
+TEST(BinBuilder, SplitColumnBets) {
 	BinBuilder binBuilder;
 	Wheel wheel;
 
@@ -38,7 +38,7 @@ TEST(SplitColumnBets, BinBuilder) {
 	ASSERT_EQ(1, wheel.get(36).count(Outcome("Split 33-36", 17)));
 }
 
-TEST(StreetBets, BinBuilder) {
+TEST(BinBuilder, StreetBets) {
 	BinBuilder binBuilder;
 	Wheel wheel;
 
@@ -54,7 +54,7 @@ TEST(StreetBets, BinBuilder) {
 	ASSERT_EQ(1, wheel.get(36).count(Outcome("Street 34-35-36", 11)));
 }
 
-TEST(CornerBets, BinBuilder) {
+TEST(BinBuilder, CornerBets) {
 	BinBuilder binBuilder;
 	Wheel wheel;
 
@@ -84,7 +84,7 @@ TEST(CornerBets, BinBuilder) {
 
 }
 
-TEST(LineBets, BinBuilder) {
+TEST(BinBuilder, LineBets) {
 	BinBuilder binBuilder;
 	Wheel wheel;
 
@@ -112,7 +112,7 @@ TEST(LineBets, BinBuilder) {
 
 }
 
-TEST(DozenBets, BinBuilder) {
+TEST(BinBuilder, DozenBets) {
 	BinBuilder binBuilder;
 	Wheel wheel;
 
@@ -140,7 +140,7 @@ TEST(DozenBets, BinBuilder) {
 
 }
 
-TEST(ColumnBets, BinBuilder) {
+TEST(BinBuilder, ColumnBets) {
 	BinBuilder binBuilder;
 	Wheel wheel;
 
@@ -161,7 +161,7 @@ TEST(ColumnBets, BinBuilder) {
 	ASSERT_EQ(0, wheel.get(35).count(dozen25_36));
 }
 
-TEST(EvenMoneyBets, BinBuilder) {
+TEST(BinBuilder, EvenMoneyBets) {
 	BinBuilder binBuilder;
 	Wheel wheel;
 
@@ -203,7 +203,7 @@ TEST(EvenMoneyBets, BinBuilder) {
 
 }
 
-TEST(FiveBets, BinBuilder) {
+TEST(BinBuilder, FiveBets) {
 	BinBuilder binBuilder;
 	Wheel wheel;
 
@@ -215,7 +215,7 @@ TEST(FiveBets, BinBuilder) {
 	ASSERT_EQ(1, wheel.get(1).count(five));
 	ASSERT_EQ(1, wheel.get(2).count(five));
 	ASSERT_EQ(1, wheel.get(3).count(five));
-	ASSERT_EQ(1, wheel.get(37).count(five));
+	ASSERT_EQ(1, wheel.get00().count(five));
 
 	ASSERT_EQ(0, wheel.get(4).count(five));
 	ASSERT_EQ(0, wheel.get(36).count(five));
