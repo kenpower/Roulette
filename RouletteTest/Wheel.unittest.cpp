@@ -2,7 +2,7 @@
 #include "gtest/gtest.h"
 #include "../Roulette/Wheel.h"
 
-TEST(Wheel, WheelAddOutcomes) {
+TEST(DISABLED_Wheel, WheelAddOutcomes) {
 
 	Wheel wheel;
 
@@ -31,7 +31,7 @@ TEST(Wheel, WheelAddOutcomes) {
 	ASSERT_EQ(0, bin.size());
 }
 
-TEST(Wheel, WheelAddUniqueOutcomes) {
+TEST(DISABLED_Wheel, WheelAddUniqueOutcomes) {
 
 	Wheel wheel;
 	Outcome odd("Odd", 5);
@@ -46,7 +46,7 @@ TEST(Wheel, WheelAddUniqueOutcomes) {
 }
 
 
-TEST(Wheel, WheelGetRandomBin) {
+TEST(DISABLED_Wheel, WheelGetRandomBin) {
 
 	Wheel wheel(false);
 	
@@ -69,7 +69,7 @@ TEST(Wheel, WheelGetRandomBin) {
 
 }
 
-TEST(Wheel, EventuallyGetsAllBins) {
+TEST(DISABLED_Wheel, EventuallyGetsAllBins) {
 
 	set<Bin> uniqueBinsRetrieved;
 	Wheel wheel;

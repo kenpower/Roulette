@@ -2,7 +2,7 @@
 #include "gtest/gtest.h"
 #include "../Roulette/BinBuilder.h"
 
-TEST(BinBuilder, StraightBets) {
+TEST(DISABLED_BinBuilder, StraightBets) {
 	BinBuilder binBuilder;
 	Wheel wheel;
 
@@ -14,7 +14,7 @@ TEST(BinBuilder, StraightBets) {
 	ASSERT_EQ(1, wheel.get00().count(Outcome("Number 00", 35)));
 }
 
-TEST(BinBuilder, SplitRowBets) {
+TEST(DISABLED_BinBuilder, SplitRowBets) {
 	BinBuilder binBuilder;
 	Wheel wheel;
 
@@ -26,7 +26,7 @@ TEST(BinBuilder, SplitRowBets) {
 	ASSERT_EQ(1, wheel.get(36).count(Outcome("Split 35-36", 17)));
 }
 
-TEST(BinBuilder, SplitColumnBets) {
+TEST(DISABLED_BinBuilder, SplitColumnBets) {
 	BinBuilder binBuilder;
 	Wheel wheel;
 
@@ -38,7 +38,7 @@ TEST(BinBuilder, SplitColumnBets) {
 	ASSERT_EQ(1, wheel.get(36).count(Outcome("Split 33-36", 17)));
 }
 
-TEST(BinBuilder, StreetBets) {
+TEST(DISABLED_BinBuilder, StreetBets) {
 	BinBuilder binBuilder;
 	Wheel wheel;
 
@@ -54,7 +54,7 @@ TEST(BinBuilder, StreetBets) {
 	ASSERT_EQ(1, wheel.get(36).count(Outcome("Street 34-35-36", 11)));
 }
 
-TEST(BinBuilder, CornerBets) {
+TEST(DISABLED_BinBuilder, CornerBets) {
 	BinBuilder binBuilder;
 	Wheel wheel;
 
@@ -84,7 +84,7 @@ TEST(BinBuilder, CornerBets) {
 
 }
 
-TEST(BinBuilder, LineBets) {
+TEST(DISABLED_BinBuilder, LineBets) {
 	BinBuilder binBuilder;
 	Wheel wheel;
 
@@ -112,7 +112,7 @@ TEST(BinBuilder, LineBets) {
 
 }
 
-TEST(BinBuilder, DozenBets) {
+TEST(DISABLED_BinBuilder, DozenBets) {
 	BinBuilder binBuilder;
 	Wheel wheel;
 
@@ -140,7 +140,7 @@ TEST(BinBuilder, DozenBets) {
 
 }
 
-TEST(BinBuilder, ColumnBets) {
+TEST(DISABLED_BinBuilder, ColumnBets) {
 	BinBuilder binBuilder;
 	Wheel wheel;
 
@@ -161,7 +161,7 @@ TEST(BinBuilder, ColumnBets) {
 	ASSERT_EQ(0, wheel.get(35).count(dozen25_36));
 }
 
-TEST(BinBuilder, EvenMoneyBets) {
+TEST(DISABLED_BinBuilder, EvenMoneyBets) {
 	BinBuilder binBuilder;
 	Wheel wheel;
 
@@ -203,7 +203,7 @@ TEST(BinBuilder, EvenMoneyBets) {
 
 }
 
-TEST(BinBuilder, FiveBets) {
+TEST(DISABLED_BinBuilder, FiveBets) {
 	BinBuilder binBuilder;
 	Wheel wheel;
 
