@@ -152,6 +152,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bet.cpp" />
     <ClCompile Include="Bin.cpp" />
     <ClCompile Include="BinBuilder.cpp" />
     <ClCompile Include="Outcome.cpp" />
@@ -159,6 +160,7 @@
     <ClCompile Include="Wheel.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bet.h" />
     <ClInclude Include="Bin.h" />
     <ClInclude Include="BinBuilder.h" />
     <ClInclude Include="Outcome.h" />
