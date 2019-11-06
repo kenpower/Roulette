@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "gtest/gtest.h"
 #include "../Roulette/Wheel.h"
+#include "Wheel.unittest.h"
 
 TEST(Wheel, WheelAddOutcomes) {
 
@@ -86,4 +87,24 @@ TEST(Wheel, EventuallyGetsAllBins) {
 	}
 
 	ASSERT_EQ(NUMBER_OF_BINS, uniqueBinsRetrieved.size());
+}
+
+TEST(Wheel, GetOutcomeFromGivenNAme) {
+
+	Wheel wheel;
+
+	Outcome outcome("Black", 1);
+	wheel.addOutcome(21, outcome);
+	
+	ASSERT_EQ(outcome, wheel.getOutcome("Black"));
+}
+
+TEST(Wheel, ThrowExceptionIfOutcomeNotFound) {
+
+	Wheel wheel;
+
+	Outcome outcome("Black", 1);
+	wheel.addOutcome(21, outcome);
+
+	EXPECT_THROW(wheel.getOutcome("Red"), OutcomeNotFoundException);
 }

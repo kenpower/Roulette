@@ -50,5 +50,8 @@
     <ClInclude Include="Bet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="OutcomeNotFoundException.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

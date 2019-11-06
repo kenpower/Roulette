@@ -34,6 +34,7 @@
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Wheel.unittest.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bet.unittest.cpp" />

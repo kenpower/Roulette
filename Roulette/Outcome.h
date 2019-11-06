@@ -8,9 +8,7 @@ class Outcome
 	int odds;
 
 public:
-	Outcome(string t_name, int t_odds) {
-		name = t_name;
-		odds = t_odds;
+	Outcome(string t_name, int t_odds):name(t_name), odds(t_odds) {
 	}
 
 	bool operator==(const Outcome& rhs) const;
@@ -20,5 +18,6 @@ public:
 	string toString() const;
 
 	int getOdds() { return odds; }
+	string getName() { return name; }
 };
 
