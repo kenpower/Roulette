@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include "Outcome.h"
 
 class Bet

@@ -1,20 +1,20 @@
 #include "Bet.h"
 
-Bet::Bet(int amount, Outcome outcome): outcome(outcome)
+Bet::Bet(int amount, Outcome outcome): outcome(outcome), amountBet(amount)
 {
 }
 
 int Bet::winAmount()
 {
-	return 0;
+	return amountBet + outcome.getOdds() * amountBet;
 }
 
 int Bet::loseAmount()
 {
-	return 0;
+	return amountBet;
 }
 
 std::string Bet::toString()
 {
-	return std::string();
+	return to_string(amountBet) + " on " + outcome.toString();
 }

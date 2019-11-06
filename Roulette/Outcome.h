@@ -18,5 +18,7 @@ public:
 	bool operator<(const Outcome& rhs) const;
 
 	string toString() const;
+
+	int getOdds() { return odds; }
 };
 
