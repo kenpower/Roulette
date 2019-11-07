@@ -6,12 +6,14 @@ void Table::placeBet(Bet bet)
 
 Bet Table::takeBet()
 {
-	return Bet(0, Outcome("",0));
+	Bet betToReturn = bets[0];
+	bets.erase(bets.begin());
+	return betToReturn;
 }
 
 bool Table::hasBets()
 {
-	return false;
+	return !bets.empty();
 }
 
 std::string Table::toString()

@@ -13,6 +13,8 @@ public:
 
 	int winAmount();
 	int loseAmount();
-	std::string toString();
+	std::string toString() const;
+
+	bool operator==(const Bet& rhs) const { return this->toString().compare(rhs.toString()) == 0; }
 };
 
