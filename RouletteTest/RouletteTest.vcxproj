@@ -47,6 +47,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Table.unittetst.cpp" />
     <ClCompile Include="Wheel.unittest.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -76,7 +77,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)\Roulette\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Bet.obj;BinBuilder.obj;Wheel.obj;Outcome.obj;Bin.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Table.obj;Bet.obj;BinBuilder.obj;Wheel.obj;Outcome.obj;Bin.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

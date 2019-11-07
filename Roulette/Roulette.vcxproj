@@ -156,15 +156,20 @@
     <ClCompile Include="Bin.cpp" />
     <ClCompile Include="BinBuilder.cpp" />
     <ClCompile Include="Outcome.cpp" />
+    <ClCompile Include="Passenger57.cpp" />
     <ClCompile Include="Roulette.cpp" />
+    <ClCompile Include="Table.cpp" />
     <ClCompile Include="Wheel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bet.h" />
     <ClInclude Include="Bin.h" />
     <ClInclude Include="BinBuilder.h" />
+    <ClInclude Include="InvalidBet.h" />
     <ClInclude Include="Outcome.h" />
     <ClInclude Include="OutcomeNotFoundException.h" />
+    <ClInclude Include="Passenger57.h" />
+    <ClInclude Include="Table.h" />
     <ClInclude Include="Wheel.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
