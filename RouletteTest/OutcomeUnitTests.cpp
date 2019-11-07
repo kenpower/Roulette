@@ -26,3 +26,14 @@ TEST(Outcome, ToString) {
 
 	ASSERT_EQ("Street 1-2-3 (11:1)", street.toString());
 }
+
+
+TEST(Outcome, Lessthan) {
+	Outcome a("A", 5);
+	Outcome b("B", 1);
+	Outcome c("C", 10);
+
+	ASSERT_TRUE(a < b);
+	ASSERT_TRUE(b < c);
+	ASSERT_FALSE(c < a);
+}
