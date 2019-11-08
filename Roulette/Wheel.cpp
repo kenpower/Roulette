@@ -36,7 +36,7 @@ Bin Wheel::get00()
 	return bins[ZEROZERO_INDEX];
 }
 
-Outcome Wheel::getOutcome(string outcomeName)
+Outcome Wheel::getOutcome(string outcomeName) const
 {
 
 	try {

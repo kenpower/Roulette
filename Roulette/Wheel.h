@@ -4,7 +4,6 @@
 #include "Bin.h"
 #include "OutcomeNotFoundException.h"
 
-
 using namespace std;
 
 class Wheel
@@ -22,7 +21,7 @@ public:
 	Bin next();
 	Bin get(int);
 	Bin get00();
-	Outcome getOutcome(string);
+	Outcome getOutcome(string) const;
 
 };
 
