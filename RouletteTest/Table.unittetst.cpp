@@ -193,8 +193,35 @@ TEST(Table, IsInvalidBetOutcomeNotExists) {
 	EXPECT_THROW(table.isValid(wheel), InvalidBetException);
 }
 
+TEST(Table, ToStringNoBets) {
+
+	Table table({ });
+
+	EXPECT_EQ("Table with 0 bets: []",table.toString());
+}
+TEST(Table, ToStringTwoBets) {
+
+	Outcome street("Street 1-2-3", 11);
+	Outcome even("Even", 1);
+
+	Bet bet1{ 5, street };
+	Bet bet2{ 10, even };
+
+
+	Table table({ bet1, bet2 });
+
+	//test does not care which order the bets are reported
+	string betString1 = bet1.toString() + ", " + bet2.toString();
+	string betString2 = bet2.toString() + ", " + bet1.toString();
+
+	set<string> expectedStrings{ "Table with 2 bets: [" + betString1 + "]" ,  "Table has 2 bets: [" + betString2 + "]" };
+
+	EXPECT_EQ("Table with 2 bets: [" + betString1 + "]", table.toString());
+	EXPECT_EQ(1, expectedStrings.count(table.toString()));
+}
+
 
 
 //TODO
-//isValid - throw
+//placebet
 //toString

@@ -18,10 +18,21 @@ bool Table::hasBets()
 	return !bets.empty();
 }
 
+string appendCommaIfNotEmpty(string str) {
+	return str.empty() ? "" : str + ", ";
+}
+
 std::string Table::toString()
 {
-	return std::string();
+	string betsAsString = std::accumulate(bets.begin(), bets.end(),
+		std::string(""),
+		[](string firstPart, const Bet& bet) {return appendCommaIfNotEmpty(firstPart) + bet.toString(); }
+	);
+
+	return "Table with " + to_string(bets.size()) +" bets: ["+ betsAsString + "]" ;
 }
+
+
 
 bool Table::isValid(const Wheel& wheel)
 {
