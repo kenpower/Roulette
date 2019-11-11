@@ -8,8 +8,6 @@ using namespace std;
 
 TEST(Table, IsValidAllBetsAboveMin) {
 	Outcome outcome("Street 1-2-3", 11);
-	Wheel wheel;
-	wheel.addOutcome(1, outcome);
 
 	Bet bet1{ 5, outcome };
 	Bet bet2{ 6, outcome };
@@ -19,14 +17,12 @@ TEST(Table, IsValidAllBetsAboveMin) {
 	Table table({ bet1, bet2 }, 100, minimumBet);
 	
 	
-	EXPECT_TRUE(table.isValid(wheel));
+	EXPECT_TRUE(table.isValid());
 }
 
 TEST(Table, IsValidOneBetBelowMin) {
 
 	Outcome outcome("Street 1-2-3", 11);
-	Wheel wheel;
-	wheel.addOutcome(1, outcome);
 
 	Bet bet1{ 5, outcome };
 	Bet bet2{ 6, outcome };
@@ -35,13 +31,11 @@ TEST(Table, IsValidOneBetBelowMin) {
 
 	Table table({ bet1, bet2 }, 100, minimumBet);
 	
-	EXPECT_THROW(table.isValid(wheel), InvalidBetException);
+	EXPECT_THROW(table.isValid(), InvalidBetException);
 }
 
 TEST(Table, IsValidBetsBelowTableMax) {
 	Outcome outcome("Street 1-2-3", 11);
-	Wheel wheel;
-	wheel.addOutcome(1, outcome);
 
 	Bet bet1{ 5, outcome };
 	Bet bet2{ 5, outcome };
@@ -50,13 +44,11 @@ TEST(Table, IsValidBetsBelowTableMax) {
 
 	Table table({ bet1, bet2 }, tableMax);
 
-	EXPECT_TRUE(table.isValid(wheel));
+	EXPECT_TRUE(table.isValid());
 }
 
 TEST(Table, IsInvalidOneBetAboveTableMax) {
 	Outcome outcome("Street 1-2-3", 11);
-	Wheel wheel;
-	wheel.addOutcome(1, outcome);
 
 	Bet bet1{ 5, outcome };
 	Bet bet2{ 15, outcome };
@@ -65,13 +57,11 @@ TEST(Table, IsInvalidOneBetAboveTableMax) {
 
 	Table table({ bet1, bet2 }, tableMax);
 
-	EXPECT_THROW(table.isValid(wheel), InvalidBetException);
+	EXPECT_THROW(table.isValid(), InvalidBetException);
 }
 
 TEST(Table, IsInvalidSumOfBetsAboveTableMax) {
 	Outcome outcome("Street 1-2-3", 11);
-	Wheel wheel;
-	wheel.addOutcome(1, outcome);
 
 	Bet bet1{ 6, outcome };
 	Bet bet2{ 6, outcome };
@@ -80,39 +70,7 @@ TEST(Table, IsInvalidSumOfBetsAboveTableMax) {
 
 	Table table({ bet1, bet2 }, tableMax);
 
-	EXPECT_THROW(table.isValid(wheel), InvalidBetException);
-}
-
-TEST(Table, IsValidBetOutcomeExists) {
-
-	Outcome outcome("Street 1-2-3", 11);
-	Wheel wheel;
-	wheel.addOutcome(1, outcome);
-
-	Bet bet1{ 5, outcome };
-
-
-	const int tableMax{ };
-
-	Table table({ bet1 });
-
-
-	EXPECT_TRUE(table.isValid(wheel));
-}
-
-TEST(Table, IsInvalidBetOutcomeNotExists) {
-
-	Outcome outcome("Street 1-2-3", 11);
-	Bet bet1{ 5, outcome };
-
-
-	const int tableMax{ };
-
-	Table table({ bet1 });
-
-	Wheel wheel;
-
-	EXPECT_THROW(table.isValid(wheel), InvalidBetException);
+	EXPECT_THROW(table.isValid(), InvalidBetException);
 }
 
 TEST(Table, ToStringNoBets) {

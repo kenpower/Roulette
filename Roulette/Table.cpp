@@ -23,19 +23,12 @@ std::string Table::toString()
 
 
 
-bool Table::isValid(const Wheel& wheel)
+bool Table::isValid()
 {
 	std::for_each(bets.cbegin(), bets.cend(),
-		[this, wheel](const Bet& bet) {
+		[this](const Bet& bet) {
 			if (bet.getAmountBet() < minimum) {
 				throw InvalidBetException("Bet: " + bet.toString() + " is below the table minimum of " + to_string(minimum));
-			}
-
-			try {
-				wheel.getOutcome(bet.getOutcome().getName());
-			}
-			catch (OutcomeNotFoundException) {
-				throw  InvalidBetException("Bet: " + bet.toString() + " does not have an valid outcome");
 			}
 		});
 

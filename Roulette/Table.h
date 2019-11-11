@@ -28,7 +28,7 @@ public:
 
 	std::string toString();
 
-	bool isValid(const Wheel& wheel);
+	bool isValid();
 
 };
 
