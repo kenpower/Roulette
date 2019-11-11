@@ -4,18 +4,7 @@
 
 void Table::placeBet(Bet bet)
 {
-}
-
-Bet Table::takeBet()
-{
-	Bet betToReturn = bets[0];
-	bets.erase(bets.begin());
-	return betToReturn;
-}
-
-bool Table::hasBets()
-{
-	return !bets.empty();
+	bets.push_back(bet);
 }
 
 string appendCommaIfNotEmpty(string str) {
@@ -50,7 +39,7 @@ bool Table::isValid(const Wheel& wheel)
 			}
 		});
 
-	int totalBets = std::accumulate(bets.begin(), bets.end(),
+	int totalBets = std::accumulate(bets.cbegin(), bets.cend(),
 		0, 
 		[](int sum, const Bet& bet) {return sum + bet.getAmountBet(); }
 	);

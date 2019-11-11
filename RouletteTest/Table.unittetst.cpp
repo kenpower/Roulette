@@ -6,77 +6,6 @@
 #include "../Roulette/Wheel.h"
 using namespace std;
 
-TEST(Table, hasBetsWhenEmpty) {
-	Table table({  });
-
-	EXPECT_FALSE(table.hasBets());
-
-}
-
-TEST(Table, hasBetsWhenSome) {
-
-	Bet bet{ 2, Outcome("Street 1-2-3", 11) };
-	
-	Table table({ bet });
-
-	EXPECT_TRUE(table.hasBets());
-
-}
-
-TEST(Table, TakeOneBet) {
-
-	Bet bet{ 2, Outcome("Street 1-2-3", 11) };
-
-	Table table({ bet });
-
-	Bet takenBet = table.takeBet();
-
-	EXPECT_EQ(bet, takenBet);
-	EXPECT_FALSE(table.hasBets());
-}
-
-TEST(Table, TakeTwoBets) {
-
-	Bet bet1{ 5, Outcome("Street 1-2-3", 11) };
-	Bet bet2{ 2, Outcome("Street 1-2-3", 11) };
-
-	Table table({ bet1, bet2 });
-
-	std::array<Bet, 2> bets{table.takeBet(), table.takeBet()};
-
-	EXPECT_TRUE(std::count(bets.begin(), bets.end(), bet1) == 1);
-	EXPECT_TRUE(std::count(bets.begin(), bets.end(), bet2) == 1);
-}
-
-TEST(Table, HasBetsEmpty) {
-
-	Table table({});
-	
-	EXPECT_FALSE(table.hasBets());
-}
-
-TEST(Table, HasBetsNotEmpty) {
-
-	Bet bet1{ 2, Outcome("Street 1-2-3", 11) };
-
-	Table table({ bet1 });
-
-	EXPECT_TRUE(table.hasBets());
-}
-
-TEST(Table, HasBetAfterTakeAll) {
-
-	Bet bet1{ 2, Outcome("Street 1-2-3", 11) };
-
-	Table table({ bet1 });
-
-	while (table.hasBets()) {
-		table.takeBet();
-	}
-
-	EXPECT_FALSE(table.hasBets());
-}
-
 TEST(Table, IsValidAllBetsAboveMin) {
 	Outcome outcome("Street 1-2-3", 11);
 	Wheel wheel;
@@ -213,8 +142,47 @@ TEST(Table, ToStringTwoBets) {
 	EXPECT_EQ(1, expectedStrings.count(table.toString()));
 }
 
+TEST(Table, IteratorWhenEmpty) {
+
+	Table table({});
+
+	EXPECT_EQ(table.cbegin(), table.cend());
+
+}
+
+TEST(Table, IteratorWhenBets) {
+	Outcome street("Street 1-2-3", 11);
+	Outcome even("Even", 1);
+
+	Bet bet1{ 5, street };
+	Bet bet2{ 10, even };
 
 
-//TODO
-//placebet
+	Table table({ bet1 });
+
+	table.placeBet(bet2);
+
+	EXPECT_EQ(1, std::count(table.cbegin(), table.cend(), bet1));
+	EXPECT_EQ(1, std::count(table.cbegin(), table.cend(), bet2));
+
+}
+
+TEST(Table, PlaceBet) {
+	Outcome street("Street 1-2-3", 11);
+	Outcome even("Even", 1);
+
+	Bet bet1{ 5, street };
+	Bet bet2{ 10, even };
+
+
+	Table table({ bet1 });
+
+	table.placeBet(bet2);
+
+	EXPECT_EQ(1, std::count(table.cbegin(), table.cend(), bet1));
+	EXPECT_EQ(1, std::count(table.cbegin(), table.cend(), bet2));
+
+}
+
+
 

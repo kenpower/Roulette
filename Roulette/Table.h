@@ -11,17 +11,20 @@ class Table
 	const int limit;
 	const int minimum;
 
-	std::vector<Bet> bets;
+	//hide underlying collection type from clients
+	using BetCollection = std::vector<Bet>;
+	BetCollection bets;
 
 public:
-	Table(const std::vector<Bet> _bets, int _limit = DEFAULT_LIMIT, int _minimum = DEFAULT_MINIMUM)
+	Table(BetCollection _bets, int _limit = DEFAULT_LIMIT, int _minimum = DEFAULT_MINIMUM)
 		: bets(_bets), limit(_limit), minimum(_minimum) {}
 
 	void placeBet(Bet bet);
 
-	Bet takeBet();
 
-	bool hasBets();
+	using const_iterator = BetCollection::const_iterator;
+	const_iterator cbegin() const { return bets.begin(); }
+	const_iterator cend() const { return bets.end(); }
 
 	std::string toString();
 
