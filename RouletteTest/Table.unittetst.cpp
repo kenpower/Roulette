@@ -1,4 +1,5 @@
 #include "pch.h"
+#include <array>
 #include "gtest/gtest.h"
 #include "../Roulette/Table.h"
 #include "../Roulette/Bet.h"
@@ -41,18 +42,10 @@ TEST(Table, TakeTwoBets) {
 
 	Table table({ bet1, bet2 });
 
-	//Using a set to collect the bets from the table but Bet does not have a operatot<() defined
-	//so we create one here to inject into the set.
-	auto betComparator = [](const auto lhs, const auto rhs) {
-		return lhs.toString().compare(rhs.toString()) > 0; };
+	std::array<Bet, 2> bets{table.takeBet(), table.takeBet()};
 
-	std::set<Bet, decltype(betComparator)> bets({
-		table.takeBet(),table.takeBet()},
-		betComparator
-		);
-
-	EXPECT_TRUE(bets.count(bet1) == 1);
-	EXPECT_TRUE(bets.count(bet2) == 1);
+	EXPECT_TRUE(std::count(bets.begin(), bets.end(), bet1) == 1);
+	EXPECT_TRUE(std::count(bets.begin(), bets.end(), bet2) == 1);
 }
 
 TEST(Table, HasBetsEmpty) {
@@ -224,4 +217,4 @@ TEST(Table, ToStringTwoBets) {
 
 //TODO
 //placebet
-//toString
+
